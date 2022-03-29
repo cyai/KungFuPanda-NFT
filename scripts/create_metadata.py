@@ -6,7 +6,14 @@ import requests
 import json
 import os
 
-
+character_to_image_uri = {
+    "PO":"https://ipfs.io/ipfs/QmdSSaXd2P56s3iRfy3o54XZyHpzAg4GsQ3LrnTYYFnkj3?filename=po.png",
+    "CRANE":"https://ipfs.io/ipfs/QmR8y3dxGZChaiqfkRufbdiYqoxYSrYNfgoyxET6sCe9SA?filename=crane.png",
+    "MANTIS": "https://ipfs.io/ipfs/QmdZ5vJ3fb5YjWEsxTydbtET2ZhedpJUjUtt1Q3J6Tnnuh?filename=mantis.png",
+    "MONKEY": "https://ipfs.io/ipfs/QmSmB2gVvjpChVqaHD7AQPrhF5C42fGg5PuKGJpt7vjgJW?filename=monkey.png",
+    "TIGRESS": "https://ipfs.io/ipfs/QmZGSgmGWv2HsMSctZfLeeXQJ2BuFTrXeioy1KtEndKZQo?filename=tigress.png",
+    "VIPER": "https://ipfs.io/ipfs/QmQMf24fcHFH276fPWU7Xuf99VczXyB9ncqXyS4HnvDwRX?filename=viper.png",
+}
 
 
 def main():
@@ -38,14 +45,18 @@ def main():
                 case "VIPER":
                     collectible_metadata["description"] = "Master Viper is one of the supporting characters of the Kung Fu Panda franchise. She is a member of the Furious Five and the daughter of Great Master Viper, as well as one of Master Shifu's students at the Jade Palace. She is a master of the Viper Style of kung fu."
 
-            image_path = "./img/" + character.lower() + ".png"
-            # PO,TIGRESS,MONKEY,CRANE,MANTIS,VIPER
-            image_uri = upload_to_ipfs(image_path)
-            
+            image_path = "./img/" + character.lower().replace("_", "-") + ".png"
+
+            image_uri = None
+            if os.getenv("UPLOAD_IPFS") == "true":
+                image_uri = upload_to_ipfs(image_path)
+            image_uri = image_uri if image_uri else character_to_image_uri[character]
+
             collectible_metadata["image"] = image_uri
             with open(metadata_file_name, "w") as file:
                 json.dump(collectible_metadata, file)
-            upload_to_ipfs(metadata_file_name)
+            if os.getenv("UPLOAD_IPFS") == "true":
+                upload_to_ipfs(metadata_file_name)
 
 
 # curl -X POST -F file=@metadata/rinkeby/0-SHIBA_INU.json http://localhost:5001/api/v0/add
