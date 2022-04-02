@@ -2,12 +2,12 @@ from brownie import network, AdvanceCollectible
 from scripts.helpful_scripts import OPENSEA_URL, get_character, get_account
 
 character_metadata_dic = {
-    "PO":"https://ipfs.io/ipfs/QmdSSaXd2P56s3iRfy3o54XZyHpzAg4GsQ3LrnTYYFnkj3?filename=po.png",
-    "CRANE":"https://ipfs.io/ipfs/QmR8y3dxGZChaiqfkRufbdiYqoxYSrYNfgoyxET6sCe9SA?filename=crane.png",
-    "MANTIS": "https://ipfs.io/ipfs/QmdZ5vJ3fb5YjWEsxTydbtET2ZhedpJUjUtt1Q3J6Tnnuh?filename=mantis.png",
-    "MONKEY": "https://ipfs.io/ipfs/QmSmB2gVvjpChVqaHD7AQPrhF5C42fGg5PuKGJpt7vjgJW?filename=monkey.png",
-    "TIGRESS": "https://ipfs.io/ipfs/QmZGSgmGWv2HsMSctZfLeeXQJ2BuFTrXeioy1KtEndKZQo?filename=tigress.png",
-    "VIPER": "https://ipfs.io/ipfs/QmQMf24fcHFH276fPWU7Xuf99VczXyB9ncqXyS4HnvDwRX?filename=viper.png",
+    "PO":"https://ipfs.io/ipfs/QmXSgY6ncZ7dRkoaUcFRHt6nQjfRRWjZqwgaZmco5wVxBV?filename=0-PO.json",
+    "CRANE":"https://ipfs.io/ipfs/QmeThTQvZ8uEPU8RmbFXupChGKNhVf87J59qEh3SJGELkL?filename=5-CRANE.json",
+    "MANTIS": "https://ipfs.io/ipfs/QmZXPizsSZHJYFCihEFpxQVaVj65Nrp2YhsypxBzMehM6o?filename=2-MANTIS.json",
+    "MONKEY": "https://ipfs.io/ipfs/QmUEYp6FFDM1Mv2e1CqNLCAt7xu7f6xGGqtDpZehco674r?filename=4-MONKEY.json",
+    "TIGRESS": "https://ipfs.io/ipfs/QmRJbwupW1g5E8N2ep8KQv77k4A1PLAd94qcW6CodNoGCS?filename=2-TIGRESS.json",
+    "VIPER": "https://ipfs.io/ipfs/QmS5oP4mYqJGNVHU5edX4Y2SYaN7rhws9C7X7TsktcTUmj?filename=1-VIPER.json",
 }
 
 
